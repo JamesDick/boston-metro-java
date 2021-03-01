@@ -1,16 +1,20 @@
 package multigraph;
 
 import java.util.Map;
+import java.util.List;
+
 
 public class Graph {
-    public Map<nodeId, N> nodes;
-    public List<E> edges;
+    private Map<Integer, Node> nodes;
+    private List<Edge> edges;
 
-    public boolean addNode(N node) {
-        return false;
+    public boolean addNode(Node N) {
+
+        return true;
     }
 
-    public boolean addEdge(E edge) {
-        return false;
+    public boolean addEdge(Edge E) {
+        edges.add(E);
+        return true;
     }
 }
