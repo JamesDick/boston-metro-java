@@ -1,4 +1,4 @@
 package multigraph;
 
-public class asdf {
+public class Rail {
 }
