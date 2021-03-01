@@ -1,4 +1,5 @@
 package multigraph;
 
-public class Station {
+public class Station extends Node{
+
 }
