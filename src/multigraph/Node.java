@@ -1,7 +1,5 @@
 package multigraph;
 
-import java.util.Formatter;
-
 public abstract class Node {
     private int id;
     private String name;

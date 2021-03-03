@@ -24,7 +24,7 @@ public abstract class Graph<N extends Node, E extends Edge> {
     }
 
     public boolean addEdge(E e) {
-        if (!nodes.containsKey(e.getSrcID()) || !nodes.containsKey(e.getDestId())) {
+        if (!nodes.containsKey(e.getSrc()) || !nodes.containsKey(e.getDest())) {
             return false;
         }
         

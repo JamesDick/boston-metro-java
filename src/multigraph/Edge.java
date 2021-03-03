@@ -1,14 +1,19 @@
 package multigraph;
 
-public class Edge {
-    private int srcID;
-    private int destId;
+public abstract class Edge {
+    private int src;
+    private int dest;
 
-    public int getSrcID() {
-        return srcID;
+    public Edge(int src, int dest) {
+        this.src = src;
+        this.dest = dest;
+    }
+    
+    public int getSrc() {
+        return src;
     }
 
-    public int getDestId() {
-        return destId;
+    public int getDest() {
+        return dest;
     }
 }
