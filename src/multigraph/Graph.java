@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.List;
 
 public abstract class Graph<N extends Node, E extends Edge> {
-    private Map<Integer, N> nodes;
-    private List<E> edges;
+    protected Map<Integer, N> nodes;
+    protected List<E> edges;
 
     public Graph() {
         nodes = new HashMap<>();
