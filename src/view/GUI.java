@@ -20,4 +20,8 @@ public class GUI extends JFrame {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
     }
+
+    public static void main(String[] args) {
+        new GUI();
+    }
 }
