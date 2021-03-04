@@ -1,4 +1,19 @@
 package multigraph;
 
-public class Node {
+public abstract class Node {
+    private int id;
+    private String name;
+    
+    public Node(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
 }
