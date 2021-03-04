@@ -8,6 +8,10 @@ public class GUI extends JFrame {
 
     private JFrame frame;
 
+    public GUI() {
+        makeFrame();
+    }
+
     private void makeFrame() {
         frame = new JFrame("Boston Metro System");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
