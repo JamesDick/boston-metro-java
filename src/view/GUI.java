@@ -7,7 +7,6 @@ import java.awt.*;
 public class GUI extends JFrame {
 
     private JFrame frame;
-    private JLabel start, destination, route;
     private JPanel initial;
 
     public GUI() {
