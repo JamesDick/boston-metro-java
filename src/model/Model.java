@@ -7,6 +7,7 @@ import multigraph.Station;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -38,6 +39,7 @@ public class Model implements IModel{
         String lineName;
         String outboundID, inboundID;
 
+        List<Rail> rails = new ArrayList<>();
         while (line != null) {
 
             st = new StringTokenizer(line);
@@ -67,18 +69,21 @@ public class Model implements IModel{
 
                 outboundID = st.nextToken();
                 if (!st.hasMoreTokens()) {
-                    throw new BadFileException(
-                            "poorly formatted adjacent stations");
+                    throw new BadFileException("poorly formatted adjacent stations");
                 }
                 inboundID = st.nextToken();
 
                 Rail outboundTrack = new Rail(Integer.parseInt(outboundID), Integer.parseInt(stationID), lineName);
                 Rail inboundTrack = new Rail(Integer.parseInt(stationID), Integer.parseInt(inboundID), lineName);
 
-                graph.addEdge(outboundTrack);
-                graph.addEdge(inboundTrack);
+                rails.add(outboundTrack);
+                rails.add(inboundTrack);
             }
             line = fileInput.readLine();
+        }
+        
+        for (Rail r : rails) {
+            graph.addEdge(r);
         }
     }
 }

@@ -11,14 +11,15 @@ public class Main {
         Model model = new Model();
         try {
             model.generateGraphFromFile();
-        }catch (IOException | BadFileException e){
+        } catch (IOException | BadFileException e) {
             System.out.println(e);
         }
+        
         //TEST
-        for(Station s : model.findRoute(69, 29)){
+        for(Station s : model.findRoute(69, 30)) {
             System.out.println(s.getName());
         }
+        
         View view = new View(model);
-
     }
 }
