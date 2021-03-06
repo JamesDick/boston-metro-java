@@ -22,6 +22,8 @@ public class FindRouteBtnListener implements ActionListener {
 		int src = view.selectedSrcId();
 		int dest = view.selectedDestId();
 		List<Station> route = model.findRoute(src, dest);
+		System.out.println("Finding route between src=" + src + " and dest="+dest); //Debug purposes
+		view.clearRoute();
 		view.displayRoute(route);
 	}
 }

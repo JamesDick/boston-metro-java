@@ -16,7 +16,7 @@ public class Main {
         }
         
         //TEST
-        for(Station s : model.findRoute(69, 30)) {
+        for(Station s : model.findRoute(1, 30)) { // change to 33 to trigger exception
             System.out.println(s.getName());
         }
         

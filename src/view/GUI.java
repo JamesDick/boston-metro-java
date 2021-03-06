@@ -55,6 +55,9 @@ public class GUI extends JFrame {
         route.setVerticalAlignment(JLabel.CENTER);
         route.setHorizontalAlignment(JLabel.CENTER);
 
+        srcList.setSelectedIndex(0);
+        destList.setSelectedIndex(0);
+
         initial.add(start);
         initial.add(destination);
         initial.add(route);
@@ -81,11 +84,23 @@ public class GUI extends JFrame {
     }
 
     public JList<String> getDestList(){
-        return this.srcList;
+        return this.destList;
     }
 
     public JList<String> getRouteList(){
-        return this.srcList;
+        return this.routeList;
+    }
+
+    public JButton getFindRouteBtn(){
+        return this.findRouteBtn;
+    }
+
+    public JButton getClearBtn(){
+        return this.clearBtn;
+    }
+
+    public JButton getExitBtn(){
+        return this.exitBtn;
     }
 
     public static void main(String[] args) {
