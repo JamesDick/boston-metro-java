@@ -15,7 +15,6 @@ public class Multigraph extends Graph<Station, Rail> {
         
         while (!agenda.isEmpty()) {
             int current = agenda.remove();
-            System.out.println("Checking station: "+current);
             if (current == dest) {
                 return reconstructPath(current, parents).stream()
                     .map(s -> nodes.get(s))

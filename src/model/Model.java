@@ -73,11 +73,11 @@ public class Model implements IModel{
                 }
                 inboundID = st.nextToken();
 
-                Rail outboundTrack = new Rail(Integer.parseInt(outboundID), Integer.parseInt(stationID), lineName);
-                Rail inboundTrack = new Rail(Integer.parseInt(stationID), Integer.parseInt(inboundID), lineName);
+                Rail rail1 = new Rail(Integer.parseInt(stationID), Integer.parseInt(outboundID), lineName);
+                Rail rail2 = new Rail(Integer.parseInt(stationID), Integer.parseInt(inboundID), lineName);
 
-                rails.add(outboundTrack);
-                rails.add(inboundTrack);
+                rails.add(rail1);
+                rails.add(rail2);
             }
             line = fileInput.readLine();
         }
