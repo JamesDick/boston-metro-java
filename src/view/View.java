@@ -12,6 +12,7 @@ public class View implements IView {
 	
 	public View(IModel model) {
 		this.model = model;
+		gui = new GUI(model.getStations());
 	}
 	
 	@Override
@@ -26,7 +27,7 @@ public class View implements IView {
 	
 	@Override
 	public void displayRoute(List<Station> route) {
-	
+
 	}
 	
 	@Override
