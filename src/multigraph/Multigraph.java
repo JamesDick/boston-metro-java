@@ -47,7 +47,7 @@ public class Multigraph extends Graph<Station, Rail> {
     }
     
     private List<Integer> reconstructPath(int current, Map<Integer, Integer> parents) {
-        List<Integer> path = Arrays.asList(current);
+        List<Integer> path = new ArrayList<>(Arrays.asList(current));
         while(parents.containsKey(current)) {
             current = parents.get(current);
             path.add(0, current);
