@@ -17,17 +17,19 @@ public class View implements IView {
 	
 	@Override
 	public int selectedSrcId() {
-		return 0;
+		return gui.getSrcList().getSelectedIndex();
 	}
 	
 	@Override
 	public int selectedDestId() {
-		return 0;
+		return gui.getDestList().getSelectedIndex();
 	}
 	
 	@Override
 	public void displayRoute(List<Station> route) {
-
+		for(Station s : route){
+			gui.routeModel.addElement(s.getName());
+		}
 	}
 	
 	@Override

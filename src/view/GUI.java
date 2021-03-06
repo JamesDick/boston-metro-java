@@ -13,20 +13,22 @@ public class GUI extends JFrame {
     private JPanel initial;
     private final JList<String>  srcList;
     private final JList<String> destList;
-    private final JList<String> routeList;
+    private JList<String> routeList;
     private JButton findRouteBtn;
+    public DefaultListModel<String> routeModel; // May be private?
     private JButton clearBtn;
     private JButton exitBtn;
 
     public GUI(List<Station> stations) {
 
-        DefaultListModel<String> listModel = new DefaultListModel<>();
+        DefaultListModel<String> stationListModel = new DefaultListModel<>();
         for(Station s : stations){
-            listModel.addElement(s.getName());
+            stationListModel.addElement(s.getName());
         }
-        srcList = new JList<>(listModel);
-        destList = new JList<>(listModel);
-        routeList = new JList<>();
+        routeModel = new DefaultListModel<>();
+        srcList = new JList<>(stationListModel);
+        destList = new JList<>(stationListModel);
+        routeList = new JList<>(routeModel);
         findRouteBtn = new JButton("Find route");
         clearBtn = new JButton("Clear");
         exitBtn = new JButton("Exit");
@@ -72,6 +74,18 @@ public class GUI extends JFrame {
         frame.setLocationRelativeTo(null);
 //        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
+    }
+
+    public JList<String> getSrcList(){
+        return this.srcList;
+    }
+
+    public JList<String> getDestList(){
+        return this.srcList;
+    }
+
+    public JList<String> getRouteList(){
+        return this.srcList;
     }
 
     public static void main(String[] args) {
