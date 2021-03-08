@@ -15,10 +15,15 @@ class MultigraphTest {
 	private Station statOne;
 	private Station statOne_rep;
 	private Station statTwo;
+	private Station statThree;
+	private Station statFour;
+	private Station statFive;
 	private Rail railOne;
 	private Rail railTwo;
 	private Rail railThree;
 	private Rail railFour;
+	private Rail railFive;
+	private Rail railSix;
 
 
 	@BeforeEach
@@ -27,10 +32,15 @@ class MultigraphTest {
 		statOne = new Station(1,"One");
 		statOne_rep = new Station(1,"One");
 		statTwo = new Station(2, "Two");
+		statThree = new Station(3, "Three");
+		statFour = new Station(4, "Four");
+		statFive = new Station(5, "Five");
 		railOne = new Rail(1,2,"Good");
 		railTwo = new Rail(1,3,"Bad");
 		railThree = new Rail(3,2,"Bad");
 		railFour = new Rail(3,3,"Bad");
+		railFive = new Rail(2,3,"Good");
+		railSix = new Rail(4,5, "Bad");
 
 	}
 	
@@ -40,11 +50,28 @@ class MultigraphTest {
 		statOne = null;
 		statOne_rep = null;
 		statTwo = null;
+		statThree = null;
+		statFour = null;
+		statFive = null;
 		railOne = null;
 		railTwo = null;
 		railThree = null;
 		railFour = null;
+		railFive = null;
+		railSix = null;
 		assertNull(graph);
+		assertNull(statOne);
+		assertNull(statOne_rep);
+		assertNull(statTwo);
+		assertNull(statThree);
+		assertNull(statFour);
+		assertNull(statFive);
+		assertNull(railOne);
+		assertNull(railTwo);
+		assertNull(railThree);
+		assertNull(railFour);
+		assertNull(railFive);
+		assertNull(railSix);
 	}
 	
 	/*
@@ -81,6 +108,20 @@ class MultigraphTest {
 	*/
 	@Test
 	void findRoute() {
+		assertNull(graph.findRoute(1,2)); //Nonexistent
+		graph.addNode(statOne);
+		assertNull(graph.findRoute(1,2)); //Nonexistent (second station)
+		graph.addNode(statTwo);
+		graph.addEdge(railOne);
+		graph.addNode(statThree);
+		graph.addEdge(railFive);
+		assertNotNull(graph.findRoute(1,3)); //FIXME: assert equal to route
+		graph.addNode(statFour);
+		graph.addNode(statFive);
+		graph.addEdge(railSix);
+		assertNull(graph.findRoute(1,5)); //No route
+
+
 	}
 	
 	/*
@@ -90,5 +131,12 @@ class MultigraphTest {
 	*/
 	@Test
 	void getStations() {
+		assertTrue(graph.getStations().isEmpty()); //No nodes
+
+		//FIXME: Not working
+		graph.addNode(statOne);
+		graph.addNode(statTwo);
+		assertFalse(graph.getStations().isEmpty()); //General FIXME: compare to the actual expected stations
+
 	}
 }
