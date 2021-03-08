@@ -33,7 +33,7 @@ public class Model implements IModel{
         return graph.getStations();
     }
 
-    public void generateGraphFromFile() throws IOException, BadFileException {
+    private void generateGraphFromFile() throws IOException, BadFileException {
 
         BufferedReader fileInput = new BufferedReader(new FileReader("metro.txt"));
         String line = fileInput.readLine();
