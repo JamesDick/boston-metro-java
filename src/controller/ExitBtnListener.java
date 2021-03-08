@@ -14,5 +14,5 @@ public class ExitBtnListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		view.clearRoute();
+		view.exit();
 	}}
