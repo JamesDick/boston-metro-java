@@ -16,6 +16,11 @@ public class Model implements IModel{
 
     public Model(){
         this.graph = new Multigraph();
+        try {
+            generateGraphFromFile();
+        } catch (IOException | BadFileException e) {
+            System.out.println(e);
+        }
     }
 
     @Override
@@ -28,7 +33,6 @@ public class Model implements IModel{
         return graph.getStations();
     }
 
-    @Override
     public void generateGraphFromFile() throws IOException, BadFileException {
 
         BufferedReader fileInput = new BufferedReader(new FileReader("metro.txt"));

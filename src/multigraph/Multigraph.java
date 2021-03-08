@@ -42,7 +42,7 @@ public class Multigraph extends Graph<Station, Rail> {
     private List<Integer> getAdjacentStationIds(int id) {
         return this.edges.stream()
             .filter(e -> e.getSrc() == id && e.getDest() != 0)
-            .map(e -> e.getDest())
+            .map(Rail::getDest)
             .distinct()
             .collect(Collectors.toList());
     }
