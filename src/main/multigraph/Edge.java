@@ -1,4 +1,4 @@
-package multigraph;
+package main.multigraph;
 
 public abstract class Edge {
     private int src;

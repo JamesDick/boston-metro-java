@@ -1,4 +1,4 @@
-package multigraph;
+package main.multigraph;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,6 +1,6 @@
-package view;
+package main.view;
 
-import multigraph.*;
+import main.multigraph.*;
 
 import java.util.List;
 

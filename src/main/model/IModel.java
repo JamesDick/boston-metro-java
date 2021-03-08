@@ -1,8 +1,7 @@
-package model;
+package main.model;
 
-import multigraph.Station;
+import main.multigraph.Station;
 
-import java.io.IOException;
 import java.util.List;
 
 public interface IModel {

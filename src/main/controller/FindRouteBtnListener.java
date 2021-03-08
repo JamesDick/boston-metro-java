@@ -1,8 +1,8 @@
-package controller;
+package main.controller;
 
-import model.IModel;
-import multigraph.Station;
-import view.IView;
+import main.model.IModel;
+import main.multigraph.Station;
+import main.view.IView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

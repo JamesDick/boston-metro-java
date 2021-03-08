@@ -1,4 +1,4 @@
-package multigraph;
+package main.multigraph;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -12,7 +12,6 @@ public class Multigraph extends Graph<Station, Rail> {
         Queue<Integer> agenda = new LinkedList<>(Arrays.asList(src));
         Map<Integer, Integer> parents = new HashMap<>();
         int expansions = 0;
-        
         while (!agenda.isEmpty()) {
             int current = agenda.remove();
             if (current == dest) {

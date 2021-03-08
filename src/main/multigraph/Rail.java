@@ -1,4 +1,4 @@
-package multigraph;
+package main.multigraph;
 
 public class Rail extends Edge {
     public String line;

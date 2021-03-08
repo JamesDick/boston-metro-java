@@ -1,4 +1,4 @@
-package model;
+package main.model;
 
 public class BadFileException extends Exception{
     public BadFileException(String message){

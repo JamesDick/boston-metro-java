@@ -1,10 +1,8 @@
-import model.BadFileException;
-import model.IModel;
-import model.Model;
-import multigraph.Station;
-import view.View;
+package main;
 
-import java.io.IOException;
+import main.model.Model;
+import main.multigraph.Station;
+import main.view.View;
 
 public class Main {
     public static void main(String[] args) {
