@@ -30,8 +30,11 @@ public class GUI extends JFrame {
         destList = new JList<>(stationListModel);
         routeList = new JList<>(routeModel);
         findRouteBtn = new JButton("Find route");
+        findRouteBtn.setPreferredSize(new Dimension(200, 100));
         clearBtn = new JButton("Clear");
+        clearBtn.setPreferredSize(new Dimension(200, 100));
         exitBtn = new JButton("Exit");
+        exitBtn.setPreferredSize(new Dimension(200, 100));
         makeFrame();
     }
 
@@ -39,6 +42,17 @@ public class GUI extends JFrame {
         frame = new JFrame("Boston Metro System");
 
         initial = new JPanel(new GridLayout(3,3,1,1));
+
+        JPanel findroutePanel = new JPanel();
+        findroutePanel.add(findRouteBtn);
+
+        JPanel clearPanel = new JPanel();
+        clearPanel.add(clearBtn);
+
+        JPanel exitPanel = new JPanel();
+        exitPanel.add(exitBtn);
+
+        initial.setMaximumSize(new Dimension(400, 400));
 
         JLabel start = new JLabel("Start");
         start.setFont(new Font("Helvetica", Font.BOLD, 30));
@@ -66,9 +80,9 @@ public class GUI extends JFrame {
         initial.add(new JScrollPane(destList));
         initial.add(new JScrollPane(routeList));
 
-        initial.add(findRouteBtn);
-        initial.add(clearBtn);
-        initial.add(exitBtn);
+        initial.add(findroutePanel);
+        initial.add(clearPanel);
+        initial.add(exitPanel);
 
         frame.add(initial);
 
@@ -101,9 +115,5 @@ public class GUI extends JFrame {
 
     public JButton getExitBtn(){
         return this.exitBtn;
-    }
-
-    public static void main(String[] args) {
-//        new GUI();
     }
 }
