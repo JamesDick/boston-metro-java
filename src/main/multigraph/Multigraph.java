@@ -35,7 +35,8 @@ public class Multigraph extends Graph<Station, Rail> {
     
         return null;
     }
-    
+
+    //Returns all the Stations in a list
     public List<Station> getStations() {
         return new ArrayList<>(this.nodes.values());
     }
