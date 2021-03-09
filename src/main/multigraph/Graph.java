@@ -13,7 +13,8 @@ public abstract class Graph<N extends Node, E extends Edge> {
         nodes = new HashMap<>();
         edges = new ArrayList<>();
     }
-    
+
+    //Checks if node already exists and if not, adds the new node
     public boolean addNode(N n) {
         if (nodes.containsKey(n.getId())) {
             return false;
@@ -23,6 +24,7 @@ public abstract class Graph<N extends Node, E extends Edge> {
         return true;
     }
 
+    //Checks if edge already exists and if not, adds the new edge
     public boolean addEdge(E e) {
         if (!nodes.containsKey(e.getSrc()) || !nodes.containsKey(e.getDest())) {
             return false;
