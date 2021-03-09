@@ -7,8 +7,8 @@ import java.util.List;
 
 /**
  * Represents a Graph containing Nodes and Edges.
- * @param <N>
- * @param <E>
+ * @param <N> Some type N that extends Node.
+ * @param <E> Some type E that extends Edge.
  */
 public abstract class Graph<N extends Node, E extends Edge> {
     protected Map<Integer, N> nodes;
