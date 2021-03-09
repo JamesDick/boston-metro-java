@@ -16,14 +16,17 @@ public class FindRouteBtnListener implements ActionListener {
 		this.model = model;
 		this.view = view;
 	}
-	
+
+	//This button's action is upon being clicked, the shortest route will be
+	// found and displayed in the route list.
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		int src = view.selectedSrcId();
 		int dest = view.selectedDestId();
 		List<Station> route = model.findRoute(src, dest);
-		System.out.println("Finding route between src=" + src + " and dest="+dest); //Debug purposes
+		//Debug purposes System.out.println("Finding route between src=" + src + " and dest="+dest);
 		view.clearRoute();
 		view.displayRoute(route);
 	}
 }
+
