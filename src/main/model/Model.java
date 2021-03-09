@@ -23,16 +23,21 @@ public class Model implements IModel{
         }
     }
 
+    //Returns quickest route between source and destination stations
     @Override
     public List<Station> findRoute(int src, int dest) {
         return graph.findRoute(src, dest);
     }
 
+    //Returns a list of all the stations
     @Override
     public List<Station> getStations() {
         return graph.getStations();
     }
 
+    //Making use of the parser, a method implemented to read in the supplied text file
+    // line by line, and add nodes (stations) as they come in and store edges (rails) as
+    // they come in and add them afterwards as we can only "addEdges" that exist already
     private void generateGraphFromFile() throws IOException, BadFileException {
         BufferedReader fileInput = new BufferedReader(new FileReader("metro.txt"));
         String line = fileInput.readLine();
