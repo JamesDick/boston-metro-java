@@ -132,10 +132,13 @@ class MultigraphTest {
 	@Test
 	void getStations() {
 		assertTrue(graph.getStations().isEmpty()); //No nodes
-
 		//FIXME: Not working
 		graph.addNode(statOne);
 		graph.addNode(statTwo);
+		assertEquals(graph.getStations().size(), 2);
+		assertTrue(graph.getStations().contains(statOne));
+		assertTrue(graph.getStations().contains(statTwo));
+		assertFalse(graph.getStations().contains(statThree));
 		assertFalse(graph.getStations().isEmpty()); //General FIXME: compare to the actual expected stations
 
 	}
