@@ -8,6 +8,8 @@ public class Multigraph extends Graph<Station, Rail> {
         super();
     }
 
+    //Implementing a Breadth First Search to calculate the shortest route
+    // using an agenda to search through and a map to construct the path
     public List<Station> findRoute(int src, int dest) {
         Queue<Integer> agenda = new LinkedList<>(Arrays.asList(src));
         Map<Integer, Integer> parents = new HashMap<>();
@@ -37,7 +39,8 @@ public class Multigraph extends Graph<Station, Rail> {
     public List<Station> getStations() {
         return new ArrayList<>(this.nodes.values());
     }
-    
+
+    //Get the id of the stations that are connected to current station
     private List<Integer> getAdjacentStationIds(int id) {
         return this.edges.stream()
             .filter(e -> e.getSrc() == id && e.getDest() != 0)
@@ -45,7 +48,10 @@ public class Multigraph extends Graph<Station, Rail> {
             .distinct()
             .collect(Collectors.toList());
     }
-    
+
+    //Method called to construct the shortest path backtracking from the destination
+    // to the starting station using the information of what previous station lead
+    // to the current station until the starting/source station is reached
     private List<Integer> reconstructPath(int current, Map<Integer, Integer> parents) {
         List<Integer> path = new ArrayList<>(Arrays.asList(current));
         while(parents.containsKey(current)) {
