@@ -30,7 +30,7 @@ public class GUI extends JFrame {
         destList = new JList<>(stationListModel);
         routeList = new JList<>(routeModel);
         
-        findRouteBtn = new JButton("Find route");
+        findRouteBtn = new JButton("Find Route");
         findRouteBtn.setPreferredSize(new Dimension(200, 100));
         
         clearBtn = new JButton("Clear");
@@ -47,13 +47,22 @@ public class GUI extends JFrame {
 
         initial = new JPanel(new GridLayout(3,3,1,1));
 
-        JPanel findroutePanel = new JPanel();
-        findroutePanel.add(findRouteBtn);
+        JPanel routePanel = new JPanel();
+        findRouteBtn.setFont(new Font("Helvetica", Font.BOLD, 30));
+        findRouteBtn.setVerticalAlignment(JLabel.CENTER);
+        findRouteBtn.setHorizontalAlignment(JLabel.CENTER);
+        routePanel.add(findRouteBtn);
 
         JPanel clearPanel = new JPanel();
+        clearBtn.setFont(new Font("Helvetica", Font.BOLD, 30));
+        clearBtn.setVerticalAlignment(JLabel.CENTER);
+        clearBtn.setHorizontalAlignment(JLabel.CENTER);
         clearPanel.add(clearBtn);
 
         JPanel exitPanel = new JPanel();
+        exitBtn.setFont(new Font("Helvetica", Font.BOLD, 30));
+        exitBtn.setVerticalAlignment(JLabel.CENTER);
+        exitBtn.setHorizontalAlignment(JLabel.CENTER);
         exitPanel.add(exitBtn);
 
         initial.setMaximumSize(new Dimension(400, 400));
@@ -84,7 +93,7 @@ public class GUI extends JFrame {
         initial.add(new JScrollPane(destList));
         initial.add(new JScrollPane(routeList));
 
-        initial.add(findroutePanel);
+        initial.add(routePanel);
         initial.add(clearPanel);
         initial.add(exitPanel);
 
