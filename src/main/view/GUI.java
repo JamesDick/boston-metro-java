@@ -42,6 +42,9 @@ public class GUI extends JFrame {
         makeFrame();
     }
 
+    //Method that styles the GUI and its features making it presentable
+    // and beautiful
+
     private void makeFrame() {
         frame = new JFrame("Boston Metro System");
 
@@ -105,6 +108,8 @@ public class GUI extends JFrame {
 //        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
     }
+
+    //Returns for key elements in the GUI
 
     public JList<String> getSrcList(){
         return this.srcList;
