@@ -11,7 +11,9 @@ public class ClearBtnListener implements ActionListener {
 	public ClearBtnListener(IView view) {
 		this.view = view;
 	}
-	
+
+	//This button's action is upon being clicked, a previously found
+	// route will be cleared from the displayed route list
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		view.clearRoute();
