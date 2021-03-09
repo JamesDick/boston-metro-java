@@ -1,8 +1,8 @@
-package model;
+package main.model;
 
-import multigraph.Multigraph;
-import multigraph.Rail;
-import multigraph.Station;
+import main.multigraph.Multigraph;
+import main.multigraph.Rail;
+import main.multigraph.Station;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,8 +14,13 @@ import java.util.StringTokenizer;
 public class Model implements IModel{
     private final Multigraph graph;
 
-    public Model(){
+    public Model() {
         this.graph = new Multigraph();
+        try {
+            generateGraphFromFile();
+        } catch (IOException | BadFileException e) {
+            System.out.println(e);
+        }
     }
 
     @Override
@@ -28,9 +33,7 @@ public class Model implements IModel{
         return graph.getStations();
     }
 
-    @Override
-    public void generateGraphFromFile() throws IOException, BadFileException {
-
+    private void generateGraphFromFile() throws IOException, BadFileException {
         BufferedReader fileInput = new BufferedReader(new FileReader("metro.txt"));
         String line = fileInput.readLine();
         StringTokenizer st;
@@ -41,7 +44,6 @@ public class Model implements IModel{
 
         List<Rail> rails = new ArrayList<>();
         while (line != null) {
-
             st = new StringTokenizer(line);
             if (!st.hasMoreTokens()) {
                 line = fileInput.readLine();

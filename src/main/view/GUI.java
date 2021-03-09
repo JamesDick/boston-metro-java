@@ -1,6 +1,6 @@
-package view;
+package main.view;
 
-import multigraph.Station;
+import main.multigraph.Station;
 
 import javax.swing.*;
 import javax.swing.JFrame;
@@ -8,7 +8,6 @@ import java.awt.*;
 import java.util.List;
 
 public class GUI extends JFrame {
-
     private JFrame frame;
     private JPanel initial;
     private final JList<String>  srcList;
@@ -20,21 +19,26 @@ public class GUI extends JFrame {
     private JButton exitBtn;
 
     public GUI(List<Station> stations) {
-
         DefaultListModel<String> stationListModel = new DefaultListModel<>();
-        for(Station s : stations){
+        for(Station s : stations) {
             stationListModel.addElement(s.getName());
         }
+        
         routeModel = new DefaultListModel<>();
+        
         srcList = new JList<>(stationListModel);
         destList = new JList<>(stationListModel);
         routeList = new JList<>(routeModel);
-        findRouteBtn = new JButton("Find route");
+        
+        findRouteBtn = new JButton("Find Route");
         findRouteBtn.setPreferredSize(new Dimension(200, 100));
+        
         clearBtn = new JButton("Clear");
         clearBtn.setPreferredSize(new Dimension(200, 100));
+        
         exitBtn = new JButton("Exit");
         exitBtn.setPreferredSize(new Dimension(200, 100));
+        
         makeFrame();
     }
 
@@ -43,13 +47,22 @@ public class GUI extends JFrame {
 
         initial = new JPanel(new GridLayout(3,3,1,1));
 
-        JPanel findroutePanel = new JPanel();
-        findroutePanel.add(findRouteBtn);
+        JPanel routePanel = new JPanel();
+        findRouteBtn.setFont(new Font("Helvetica", Font.BOLD, 30));
+        findRouteBtn.setVerticalAlignment(JLabel.CENTER);
+        findRouteBtn.setHorizontalAlignment(JLabel.CENTER);
+        routePanel.add(findRouteBtn);
 
         JPanel clearPanel = new JPanel();
+        clearBtn.setFont(new Font("Helvetica", Font.BOLD, 30));
+        clearBtn.setVerticalAlignment(JLabel.CENTER);
+        clearBtn.setHorizontalAlignment(JLabel.CENTER);
         clearPanel.add(clearBtn);
 
         JPanel exitPanel = new JPanel();
+        exitBtn.setFont(new Font("Helvetica", Font.BOLD, 30));
+        exitBtn.setVerticalAlignment(JLabel.CENTER);
+        exitBtn.setHorizontalAlignment(JLabel.CENTER);
         exitPanel.add(exitBtn);
 
         initial.setMaximumSize(new Dimension(400, 400));
@@ -80,7 +93,7 @@ public class GUI extends JFrame {
         initial.add(new JScrollPane(destList));
         initial.add(new JScrollPane(routeList));
 
-        initial.add(findroutePanel);
+        initial.add(routePanel);
         initial.add(clearPanel);
         initial.add(exitPanel);
 

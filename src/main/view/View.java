@@ -1,10 +1,10 @@
-package view;
+package main.view;
 
-import controller.ClearBtnListener;
-import controller.ExitBtnListener;
-import controller.FindRouteBtnListener;
-import model.IModel;
-import multigraph.Station;
+import main.controller.ClearBtnListener;
+import main.controller.ExitBtnListener;
+import main.controller.FindRouteBtnListener;
+import main.model.IModel;
+import main.multigraph.Station;
 
 import java.util.List;
 
