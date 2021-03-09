@@ -11,8 +11,10 @@ public class ExitBtnListener implements ActionListener {
 	public ExitBtnListener(IView view) {
 		this.view = view;
 	}
-	
+
+	//This button's action is upon being clicked, the application will close
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		view.exit();
-	}}
+	}
+}
