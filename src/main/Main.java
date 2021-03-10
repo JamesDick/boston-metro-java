@@ -9,7 +9,7 @@ public class Main {
         Model model = new Model();
         
         //TEST
-        for(Station s : model.findRoute(1, 33)) { // change to 33 to trigger exception
+        for(Station s : model.findRoute(9, 60)) {
             System.out.println(s.getName());
         }
         

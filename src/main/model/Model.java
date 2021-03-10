@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Model implements IModel{
+public class Model implements IModel {
     private final Multigraph graph;
 
     public Model() {
@@ -35,9 +35,11 @@ public class Model implements IModel{
         return graph.getStations();
     }
 
-    //Making use of the parser, a method implemented to read in the supplied text file
-    // line by line, and add nodes (stations) as they come in and store edges (rails) as
-    // they come in and add them afterwards as we can only "addEdges" that exist already
+    /**
+     * Populates the Graph based on the contents of the 'metro.txt' file.
+     * @throws IOException
+     * @throws BadFileException
+     */
     private void generateGraphFromFile() throws IOException, BadFileException {
         BufferedReader fileInput = new BufferedReader(new FileReader("metro.txt"));
         String line = fileInput.readLine();
