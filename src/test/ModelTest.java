@@ -23,8 +23,10 @@ class ModelTest {
 	void tearDown() {
 		model = null;
 	}
-
-	//check if model has been created
+	
+	/**
+	 * Tests that the Model was successfully instantiated.
+	 */
 	@Test
 	void testCreate() {
 		assertNotNull(model);

@@ -23,13 +23,11 @@ public class Model implements IModel {
         }
     }
 
-    //Returns quickest route between source and destination stations
     @Override
     public List<Station> findRoute(int src, int dest) {
         return graph.findRoute(src, dest);
     }
 
-    //Returns a list of all the stations
     @Override
     public List<Station> getStations() {
         return graph.getStations();
