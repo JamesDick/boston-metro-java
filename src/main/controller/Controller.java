@@ -67,8 +67,7 @@ public class Controller implements Initializable {
     public void imageClick(MouseEvent e){
         int x = (int) e.getX();
         int y = (int) e.getY();
-
-        System.out.println("(" + e.getX() + ", " + e.getY() + ")");
+        System.out.println("(" + x + ", " + y + ")");
         int stationClicked = coordinateToStation(x, y);
         if (stationClicked >= 0){
             srcList.getSelectionModel().select(stationClicked);
