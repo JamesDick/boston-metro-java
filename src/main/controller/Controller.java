@@ -56,6 +56,8 @@ public class Controller implements Initializable {
         destList.setItems(destListItems);
         srcList.getSelectionModel().select(1);
         destList.getSelectionModel().select(5);
+        routeListItems.add("Press 'Find route' to start");
+        routeList.setItems(routeListItems);
     }
 
     /***
@@ -136,6 +138,7 @@ public class Controller implements Initializable {
     @FXML
     public void clearRoute(Event e){
         routeListItems.clear();
+        routeListItems.add("Press 'Find route' to start");
         routeList.setItems(routeListItems);
     }
 }

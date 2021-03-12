@@ -21,8 +21,8 @@ public class Main extends Application{
         Parent root = loader.load();
 
         stage.setScene(new Scene(root));
-        stage.setWidth(1150);
-        stage.setHeight(630);
+        stage.setWidth(925);
+        stage.setHeight(650);
 //        stage.setResizable(false);
         stage.show();
     }
