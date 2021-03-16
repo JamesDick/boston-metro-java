@@ -4,9 +4,7 @@ import main.multigraph.Multigraph;
 import main.multigraph.Rail;
 import main.multigraph.Station;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -40,7 +38,8 @@ public class Model implements IModel {
      * @throws BadFileException
      */
     private void generateGraphFromFile() throws IOException, BadFileException {
-        BufferedReader fileInput = new BufferedReader(new FileReader("metro.txt"));
+        InputStream in = getClass().getResourceAsStream("/metro.txt");
+        BufferedReader fileInput = new BufferedReader(new InputStreamReader(in));
         String line = fileInput.readLine();
         StringTokenizer st;
         String stationID;
