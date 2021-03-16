@@ -10,41 +10,46 @@ import java.util.List;
 
 public class View implements IView {
 	
-	private GUI gui;
-	private IModel model;
-	
+	private final GUI gui;
+
 	public View(IModel model) {
-//		this.model = model;
-//		gui = new GUI(model.getStations());
-//		gui.getFindRouteBtn().addActionListener(new FindRouteBtnListener(model, this));
-//		gui.getClearBtn().addActionListener(new ClearBtnListener(this));
-//		gui.getExitBtn().addActionListener(new ExitBtnListener(this));
+		gui = new GUI(model);
+		//Attaching listeners
+		gui.getFindRouteBtn().setOnAction(new FindRouteBtnListener(model, this));
+		gui.getClearBtn().setOnAction(new ClearBtnListener(this));
+		gui.getExitBtn().setOnAction(new ExitBtnListener(this));
+
 	}
 
 	@Override
 	public int selectedSrcId() {
-		return gui.getSrcList().getSelectedIndex() + 1;
+		return gui.getSrcList().getSelectionModel().getSelectedIndex() + 1;
 	}
 
 	@Override
 	public int selectedDestId() {
-		return gui.getDestList().getSelectedIndex() + 1;
+		return gui.getDestList().getSelectionModel().getSelectedIndex() + 1;
 	}
 
 	@Override
 	public void displayRoute(List<Station> route) {
+		gui.getRouteListItems().clear();
+		int i = 1;
 		for(Station s : route){
-			gui.routeModel.addElement(s.getName());
+			gui.getRouteListItems().add(i + ". " + s.getName());
+			i++;
 		}
+		gui.getRouteList().setItems(gui.getRouteListItems());
 	}
 
 	@Override
-	public void clearRoute() {
-		gui.routeModel.clear();
+	public void clearRoute(){
+		gui.getRouteListItems().clear();
+		gui.getRouteListItems().add("Press 'Find route' to start");
+		gui.getRouteList().setItems(gui.getRouteListItems());
 	}
-
 	@Override
-	public void exit() {
+	public void exit(){
 		System.exit(0);
 	}
 }

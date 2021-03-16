@@ -1,137 +1,162 @@
 package main.view;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
+import main.model.IModel;
 import main.multigraph.Station;
-
-import javax.swing.*;
-import javax.swing.JFrame;
-import java.awt.*;
 import java.util.List;
 
-public class GUI extends JFrame {
-    private JFrame frame;
-    private JPanel initial;
-    private final JList<String>  srcList;
-    private final JList<String> destList;
-    private JList<String> routeList;
-    private JButton findRouteBtn;
-    public DefaultListModel<String> routeModel; // May be private?
-    private JButton clearBtn;
-    private JButton exitBtn;
+public class GUI {
 
-    public GUI(List<Station> stations) {
-        DefaultListModel<String> stationListModel = new DefaultListModel<>();
-        for(Station s : stations) {
-            stationListModel.addElement(s.getName());
+    private final List<Station> stationList;
+    private ListView<String> routeList;
+
+    private Button findRouteButton;
+    private Button clearButton;
+    private Button exitButton;
+
+    private final ObservableList<String> sourceListItems = FXCollections.observableArrayList();
+    private final ObservableList<String> destListItems = FXCollections.observableArrayList();
+    private final ObservableList<String> routeListItems = FXCollections.observableArrayList();
+
+    private ComboBox<String> srcList;
+    private ComboBox<String> destList;
+
+    public GUI(IModel model){
+        this.stationList = model.getStations();
+        Stage stage = new Stage();
+
+        stage.setScene(new Scene(generateMainPane()));
+        stage.setResizable(false);
+        stage.show();
+    }
+
+    public BorderPane generateMainPane(){
+
+        Image image = new Image("main/view/map.png");
+        ImageView mapView = new ImageView();
+        BorderPane bPane = new BorderPane();
+
+        mapView.setImage(image);
+        bPane.setLeft(mapView);
+        bPane.setRight(generateOptions());
+
+        return bPane;
+    }
+
+    /**
+     * Right section of the GUI.
+     * Contains a GridPane for the labels and combo-boxes.
+     * @return AnchorPane
+     */
+    public AnchorPane generateOptions(){
+        AnchorPane aPane = new AnchorPane();
+        GridPane gPane = new GridPane();
+
+        //Components
+        srcList = new ComboBox<>();
+        destList = new ComboBox<>();
+        routeList = new ListView<>();
+        findRouteButton = new Button("Find Route");
+        clearButton = new Button("Clear");
+        exitButton = new Button("exit");
+
+        //Setting lists models
+        for (Station s : stationList){
+            sourceListItems.add(s.getName());
+            destListItems.add(s.getName());
         }
-        
-        routeModel = new DefaultListModel<>();
-        
-        srcList = new JList<>(stationListModel);
-        destList = new JList<>(stationListModel);
-        routeList = new JList<>(routeModel);
-        
-        findRouteBtn = new JButton("Find Route");
-        findRouteBtn.setPreferredSize(new Dimension(200, 100));
-        
-        clearBtn = new JButton("Clear");
-        clearBtn.setPreferredSize(new Dimension(200, 100));
-        
-        exitBtn = new JButton("Exit");
-        exitBtn.setPreferredSize(new Dimension(200, 100));
-        
-        makeFrame();
+        srcList.setItems(sourceListItems);
+        destList.setItems(destListItems);
+        srcList.getSelectionModel().select(1);
+        destList.getSelectionModel().select(5);
+        routeListItems.add("Press 'Find route' to start");
+        routeList.setItems(routeListItems);
+
+        //Row 0
+        gPane.add(new Label("Depart From:"), 0, 0);
+        gPane.add(srcList, 1, 0);
+        //Row 1
+        gPane.add(new Label("Arrive At:"), 0, 1);
+        gPane.add(destList, 1, 1);
+        //Grid settings
+        gPane.setPadding(new Insets(15, 15, 15, 15));
+        gPane.setHgap(20);
+        gPane.setVgap(10);
+
+
+        //Positioning
+        findRouteButton.setLayoutX(18);
+        findRouteButton.setLayoutY(561);
+        clearButton.setLayoutX(115);
+        clearButton.setLayoutY(561);
+        exitButton.setLayoutX(180);
+        exitButton.setLayoutY(561);
+        routeList.setLayoutX(15);
+        routeList.setLayoutY(101);
+        //Sizing
+        aPane.setPrefWidth(230);
+        aPane.setMaxWidth(230);
+        aPane.setMinWidth(230);
+        routeList.setPrefWidth(200);
+        srcList.setPrefWidth(107);
+
+        destList.setPrefWidth(107);
+
+
+
+
+        //Anchors
+        AnchorPane.setBottomAnchor(findRouteButton, 14.1);
+        AnchorPane.setBottomAnchor(clearButton, 14.1);
+        AnchorPane.setBottomAnchor(exitButton, 14.1);
+        AnchorPane.setRightAnchor(exitButton, 15.2);
+        AnchorPane.setLeftAnchor(gPane, 0.0);
+        AnchorPane.setLeftAnchor(routeList, 15.0);
+
+        aPane.getChildren().addAll(gPane, routeList, findRouteButton, clearButton, exitButton);
+        //AnchorPane border(debug)
+//        aPane.setBorder(new Border(new BorderStroke(Color.BLACK,
+//                BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+        return aPane;
     }
 
-    //Method that styles the GUI and its features making it presentable
-    // and beautiful
-
-    private void makeFrame() {
-        frame = new JFrame("Boston Metro System");
-
-        initial = new JPanel(new GridLayout(3,3,1,1));
-
-        JPanel routePanel = new JPanel();
-        findRouteBtn.setFont(new Font("Helvetica", Font.BOLD, 30));
-        findRouteBtn.setVerticalAlignment(JLabel.CENTER);
-        findRouteBtn.setHorizontalAlignment(JLabel.CENTER);
-        routePanel.add(findRouteBtn);
-
-        JPanel clearPanel = new JPanel();
-        clearBtn.setFont(new Font("Helvetica", Font.BOLD, 30));
-        clearBtn.setVerticalAlignment(JLabel.CENTER);
-        clearBtn.setHorizontalAlignment(JLabel.CENTER);
-        clearPanel.add(clearBtn);
-
-        JPanel exitPanel = new JPanel();
-        exitBtn.setFont(new Font("Helvetica", Font.BOLD, 30));
-        exitBtn.setVerticalAlignment(JLabel.CENTER);
-        exitBtn.setHorizontalAlignment(JLabel.CENTER);
-        exitPanel.add(exitBtn);
-
-        initial.setMaximumSize(new Dimension(400, 400));
-
-        JLabel start = new JLabel("Start");
-        start.setFont(new Font("Helvetica", Font.BOLD, 30));
-        start.setVerticalAlignment(JLabel.CENTER);
-        start.setHorizontalAlignment(JLabel.CENTER);
-
-        JLabel destination = new JLabel("Destination");
-        destination.setFont(new Font("Helvetica", Font.BOLD, 30));
-        destination.setVerticalAlignment(JLabel.CENTER);
-        destination.setHorizontalAlignment(JLabel.CENTER);
-
-        JLabel route = new JLabel("Route");
-        route.setFont(new Font("Helvetica", Font.BOLD, 30));
-        route.setVerticalAlignment(JLabel.CENTER);
-        route.setHorizontalAlignment(JLabel.CENTER);
-
-        srcList.setSelectedIndex(0);
-        destList.setSelectedIndex(0);
-
-        initial.add(start);
-        initial.add(destination);
-        initial.add(route);
-
-        initial.add(new JScrollPane(srcList));
-        initial.add(new JScrollPane(destList));
-        initial.add(new JScrollPane(routeList));
-
-        initial.add(routePanel);
-        initial.add(clearPanel);
-        initial.add(exitPanel);
-
-        frame.add(initial);
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000, 750);
-        frame.setLocationRelativeTo(null);
-//        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setVisible(true);
+    public Button getFindRouteBtn(){
+        return findRouteButton;
     }
 
-    //Returns for key elements in the GUI
-
-    public JList<String> getSrcList(){
-        return this.srcList;
+    public Button getClearBtn(){
+        return clearButton;
+    }
+    public Button getExitBtn(){
+        return exitButton;
     }
 
-    public JList<String> getDestList(){
-        return this.destList;
+    public ComboBox<String> getSrcList(){
+        return srcList;
     }
 
-    public JList<String> getRouteList(){
-        return this.routeList;
+    public ComboBox<String> getDestList(){
+        return destList;
     }
 
-    public JButton getFindRouteBtn(){
-        return this.findRouteBtn;
+    public ListView<String> getRouteList(){
+        return routeList;
+    }
+    public ObservableList<String> getRouteListItems(){
+        return routeListItems;
     }
 
-    public JButton getClearBtn(){
-        return this.clearBtn;
-    }
 
-    public JButton getExitBtn(){
-        return this.exitBtn;
-    }
+
 }
