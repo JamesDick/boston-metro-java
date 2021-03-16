@@ -14,6 +14,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import main.model.IModel;
 import main.multigraph.Station;
+
 import java.util.List;
 
 public class GUI {
@@ -32,7 +33,7 @@ public class GUI {
     private ComboBox<String> srcList;
     private ComboBox<String> destList;
 
-    public GUI(IModel model){
+    public GUI(IModel model) {
         this.stationList = model.getStations();
         Stage stage = new Stage();
 
@@ -41,7 +42,7 @@ public class GUI {
         stage.show();
     }
 
-    public BorderPane generateMainPane(){
+    public BorderPane generateMainPane() {
 
         Image image = new Image("main/view/map.png");
         ImageView mapView = new ImageView();
@@ -57,9 +58,10 @@ public class GUI {
     /**
      * Right section of the GUI.
      * Contains a GridPane for the labels and combo-boxes.
+     *
      * @return AnchorPane
      */
-    public AnchorPane generateOptions(){
+    public AnchorPane generateOptions() {
         AnchorPane aPane = new AnchorPane();
         GridPane gPane = new GridPane();
 
@@ -72,7 +74,7 @@ public class GUI {
         exitButton = new Button("exit");
 
         //Setting lists models
-        for (Station s : stationList){
+        for (Station s : stationList) {
             sourceListItems.add(s.getName());
             destListItems.add(s.getName());
         }
@@ -114,8 +116,6 @@ public class GUI {
         destList.setPrefWidth(107);
 
 
-
-
         //Anchors
         AnchorPane.setBottomAnchor(findRouteButton, 14.1);
         AnchorPane.setBottomAnchor(clearButton, 14.1);
@@ -131,32 +131,33 @@ public class GUI {
         return aPane;
     }
 
-    public Button getFindRouteBtn(){
+    public Button getFindRouteBtn() {
         return findRouteButton;
     }
 
-    public Button getClearBtn(){
+    public Button getClearBtn() {
         return clearButton;
     }
-    public Button getExitBtn(){
+
+    public Button getExitBtn() {
         return exitButton;
     }
 
-    public ComboBox<String> getSrcList(){
+    public ComboBox<String> getSrcList() {
         return srcList;
     }
 
-    public ComboBox<String> getDestList(){
+    public ComboBox<String> getDestList() {
         return destList;
     }
 
-    public ListView<String> getRouteList(){
+    public ListView<String> getRouteList() {
         return routeList;
     }
-    public ObservableList<String> getRouteListItems(){
+
+    public ObservableList<String> getRouteListItems() {
         return routeListItems;
     }
-
 
 
 }

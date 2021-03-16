@@ -3,7 +3,7 @@ package main.multigraph;
 public abstract class Node {
     private int id;
     private String name;
-    
+
     public Node(int id, String name) {
         this.id = id;
         this.name = name;

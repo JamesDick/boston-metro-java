@@ -5,22 +5,22 @@ import main.model.IModel;
 import main.view.IView;
 
 public class FindRouteBtnListener implements EventHandler<javafx.event.ActionEvent> {
-	IModel model;
-	IView view;
-	
-	public FindRouteBtnListener(IModel model, IView view) {
-		this.model = model;
-		this.view = view;
-	}
+    IModel model;
+    IView view;
 
-	@Override
-	public void handle(javafx.event.ActionEvent actionEvent) {
+    public FindRouteBtnListener(IModel model, IView view) {
+        this.model = model;
+        this.view = view;
+    }
 
-		int src = view.selectedSrcId();
-		int dest = view.selectedDestId();
+    @Override
+    public void handle(javafx.event.ActionEvent actionEvent) {
 
-		view.clearRoute();
-		view.displayRoute(model.findRoute(src, dest));
-	}
+        int src = view.selectedSrcId();
+        int dest = view.selectedDestId();
+
+        view.clearRoute();
+        view.displayRoute(model.findRoute(src, dest));
+    }
 }
 

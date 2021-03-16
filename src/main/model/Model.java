@@ -35,6 +35,7 @@ public class Model implements IModel {
 
     /**
      * Populates the Graph based on the contents of the 'metro.txt' file.
+     *
      * @throws IOException
      * @throws BadFileException
      */
@@ -88,7 +89,7 @@ public class Model implements IModel {
             }
             line = fileInput.readLine();
         }
-        
+
         for (Rail r : rails) {
             graph.addEdge(r);
         }

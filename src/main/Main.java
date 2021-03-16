@@ -6,13 +6,13 @@ import main.model.Model;
 import main.view.View;
 
 
-public class Main extends Application{
+public class Main extends Application {
     public static void main(String[] args) {
         Application.launch(args);
     }
 
     @Override
-    public void start(Stage stage){
+    public void start(Stage stage) {
         new View(new Model());
     }
 }
