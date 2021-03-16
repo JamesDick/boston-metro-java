@@ -74,7 +74,6 @@ public class Controller implements Initializable {
         if (stationClicked >= 0){
             srcList.getSelectionModel().select(stationClicked);
         }
-
     }
 
     /**
@@ -101,7 +100,6 @@ public class Controller implements Initializable {
         if ((x > 350 && x < 425) && (y > 89 && y < 107)){
             return 11;
         }
-
         //Wonderland
         if ((x > 582 && x < 789) && (y > 66 && y < 83)){
             return 2;

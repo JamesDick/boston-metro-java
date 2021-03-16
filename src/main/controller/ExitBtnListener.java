@@ -1,20 +1,17 @@
 package main.controller;
 
+import javafx.event.EventHandler;
 import main.view.IView;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-public class ExitBtnListener implements ActionListener {
+public class ExitBtnListener implements EventHandler<javafx.event.ActionEvent> {
 	IView view;
 	
 	public ExitBtnListener(IView view) {
 		this.view = view;
 	}
 
-	//This button's action is upon being clicked, the application will close
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void handle(javafx.event.ActionEvent actionEvent) {
 		view.exit();
 	}
 }

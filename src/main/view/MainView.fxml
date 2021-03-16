@@ -10,8 +10,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
 
 <VBox xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <SplitPane dividerPositions="0.5" focusTraversable="true" VBox.vgrow="ALWAYS">
@@ -23,21 +21,13 @@
             </AnchorPane>
         </ScrollPane>
         <AnchorPane maxWidth="230.0" minWidth="230.0" prefWidth="230.0" SplitPane.resizableWithParent="false">
-            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" style="&#10;" text="Master" textAlignment="CENTER">
-                <font>
-                    <Font size="18.0" fx:id="x1" />
-                </font>
-                <textFill>
-                    <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
-                </textFill>
-            </Label>
             <ComboBox fx:id="srcList" layoutX="108.0" layoutY="62.0" prefHeight="27.0" prefWidth="107.0" />
             <ComboBox fx:id="destList" layoutX="108.0" layoutY="103.0" prefHeight="27.0" prefWidth="107.0" />
-            <Button layoutX="18.0" layoutY="561.0" mnemonicParsing="false" onAction="#findRoute" text="Find route" AnchorPane.bottomAnchor="14.199999999999932" />
+            <Button layoutX="18.0" layoutY="561.0" mnemonicParsing="false" onAction="#findRoute" text="Find Route" AnchorPane.bottomAnchor="14.199999999999932" />
             <Button layoutX="115.0" layoutY="561.0" mnemonicParsing="false" onAction="#clearRoute" text="Clear" AnchorPane.bottomAnchor="14.199999999999932" />
-            <Label layoutX="14.0" layoutY="67.0" text="Source:" />
-            <Label layoutX="14.0" layoutY="108.0" text="Destination:" />
-            <ListView fx:id="routeList" layoutX="15.0" layoutY="141.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.rightAnchor="15.400000000000006" />
+            <Label layoutX="19.0" layoutY="67.0" text="Depart From:" />
+            <Label layoutX="39.0" layoutY="108.0" text="Arrive At:" />
+            <ListView fx:id="routeList" layoutX="15.0" layoutY="141.0" prefHeight="298.0" prefWidth="200.0" AnchorPane.rightAnchor="15.0" />
             <Button layoutX="180.0" layoutY="561.0" mnemonicParsing="false" text="Exit" AnchorPane.bottomAnchor="14.199999999999932" AnchorPane.rightAnchor="15.200000000000017" />
         </AnchorPane>
     </SplitPane>

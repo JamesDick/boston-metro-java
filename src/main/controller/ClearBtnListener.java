@@ -1,21 +1,17 @@
 package main.controller;
 
+import javafx.event.EventHandler;
 import main.view.IView;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-public class ClearBtnListener implements ActionListener {
+public class ClearBtnListener implements EventHandler<javafx.event.ActionEvent> {
 	IView view;
 	
 	public ClearBtnListener(IView view) {
 		this.view = view;
 	}
 
-	//This button's action is upon being clicked, a previously found
-	// route will be cleared from the displayed route list
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void handle(javafx.event.ActionEvent actionEvent) {
 		view.clearRoute();
 	}
 }

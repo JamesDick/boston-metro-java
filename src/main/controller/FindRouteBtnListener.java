@@ -1,14 +1,10 @@
 package main.controller;
 
+import javafx.event.EventHandler;
 import main.model.IModel;
-import main.multigraph.Station;
 import main.view.IView;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.List;
-
-public class FindRouteBtnListener implements ActionListener {
+public class FindRouteBtnListener implements EventHandler<javafx.event.ActionEvent> {
 	IModel model;
 	IView view;
 	
@@ -17,16 +13,14 @@ public class FindRouteBtnListener implements ActionListener {
 		this.view = view;
 	}
 
-	//This button's action is upon being clicked, the shortest route will be
-	// found and displayed in the route list.
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void handle(javafx.event.ActionEvent actionEvent) {
+
 		int src = view.selectedSrcId();
 		int dest = view.selectedDestId();
-		List<Station> route = model.findRoute(src, dest);
-		//Debug purposes System.out.println("Finding route between src=" + src + " and dest="+dest);
+
 		view.clearRoute();
-		view.displayRoute(route);
+		view.displayRoute(model.findRoute(src, dest));
 	}
 }
 
