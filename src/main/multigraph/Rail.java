@@ -8,7 +8,6 @@ public class Rail extends Edge {
         this.line = line;
     }
 
-    //Returns the name/colour of the line a rail is on
     public String getLine() {
         return this.line;
     }

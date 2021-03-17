@@ -1,12 +1,12 @@
 package main.controller;
 
-import javafx.event.EventHandler;
+import javafx.event.*;
 import main.model.IModel;
 import main.view.IView;
 
-public class FindRouteBtnListener implements EventHandler<javafx.event.ActionEvent> {
-    IModel model;
-    IView view;
+public class FindRouteBtnListener implements EventHandler<ActionEvent> {
+    private IModel model;
+    private IView view;
 
     public FindRouteBtnListener(IModel model, IView view) {
         this.model = model;
@@ -14,8 +14,7 @@ public class FindRouteBtnListener implements EventHandler<javafx.event.ActionEve
     }
 
     @Override
-    public void handle(javafx.event.ActionEvent actionEvent) {
-
+    public void handle(ActionEvent actionEvent) {
         int src = view.selectedSrcId();
         int dest = view.selectedDestId();
 
