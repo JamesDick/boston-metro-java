@@ -17,6 +17,9 @@ import main.multigraph.Station;
 
 import java.util.List;
 
+/**
+ * Represents a JavaFX GUI.
+ */
 public class GUI {
 
     private final List<Station> stationList;
@@ -33,6 +36,11 @@ public class GUI {
     private ComboBox<String> srcList;
     private ComboBox<String> destList;
 
+    /**
+     * Class constructor.
+     *
+     * @param model model reference.
+     */
     public GUI(IModel model) {
         this.stationList = model.getStations();
         Stage stage = new Stage();
@@ -42,6 +50,12 @@ public class GUI {
         stage.show();
     }
 
+    /**
+     * Creates the main Pane of the GUI with an image on the left
+     * and options on the right side.
+     *
+     * @return a BorderPane.
+     */
     public BorderPane generateMainPane() {
 
         Image image = new Image("main/view/map.png");
@@ -56,10 +70,10 @@ public class GUI {
     }
 
     /**
-     * Right section of the GUI.
-     * Contains a GridPane for the labels and combo-boxes.
+     * Right section of the GUI containing options and
+     * a list of the generated route.
      *
-     * @return AnchorPane
+     * @return an AnchorPane
      */
     public AnchorPane generateOptions() {
         AnchorPane aPane = new AnchorPane();
@@ -96,7 +110,6 @@ public class GUI {
         gPane.setHgap(20);
         gPane.setVgap(10);
 
-
         //Positioning
         findRouteButton.setLayoutX(18);
         findRouteButton.setLayoutY(561);
@@ -112,9 +125,7 @@ public class GUI {
         aPane.setMinWidth(230);
         routeList.setPrefWidth(200);
         srcList.setPrefWidth(107);
-
         destList.setPrefWidth(107);
-
 
         //Anchors
         AnchorPane.setBottomAnchor(findRouteButton, 14.1);
@@ -125,9 +136,6 @@ public class GUI {
         AnchorPane.setLeftAnchor(routeList, 15.0);
 
         aPane.getChildren().addAll(gPane, routeList, findRouteButton, clearButton, exitButton);
-        //AnchorPane border(debug)
-//        aPane.setBorder(new Border(new BorderStroke(Color.BLACK,
-//                BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         return aPane;
     }
 
@@ -158,6 +166,4 @@ public class GUI {
     public ObservableList<String> getRouteListItems() {
         return routeListItems;
     }
-
-
 }
