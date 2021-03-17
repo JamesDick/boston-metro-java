@@ -43,7 +43,6 @@ public class GUI {
     }
 
     public BorderPane generateMainPane() {
-
         Image image = new Image("main/view/map.png");
         ImageView mapView = new ImageView();
         BorderPane bPane = new BorderPane();
@@ -71,7 +70,7 @@ public class GUI {
         routeList = new ListView<>();
         findRouteButton = new Button("Find Route");
         clearButton = new Button("Clear");
-        exitButton = new Button("exit");
+        exitButton = new Button("Exit");
 
         //Setting lists models
         for (Station s : stationList) {
@@ -125,9 +124,6 @@ public class GUI {
         AnchorPane.setLeftAnchor(routeList, 15.0);
 
         aPane.getChildren().addAll(gPane, routeList, findRouteButton, clearButton, exitButton);
-        //AnchorPane border(debug)
-//        aPane.setBorder(new Border(new BorderStroke(Color.BLACK,
-//                BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         return aPane;
     }
 
@@ -158,6 +154,4 @@ public class GUI {
     public ObservableList<String> getRouteListItems() {
         return routeListItems;
     }
-
-
 }

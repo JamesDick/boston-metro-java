@@ -9,7 +9,6 @@ import main.multigraph.Station;
 import java.util.List;
 
 public class View implements IView {
-
     private final GUI gui;
 
     public View(IModel model) {
@@ -18,7 +17,6 @@ public class View implements IView {
         gui.getFindRouteBtn().setOnAction(new FindRouteBtnListener(model, this));
         gui.getClearBtn().setOnAction(new ClearBtnListener(this));
         gui.getExitBtn().setOnAction(new ExitBtnListener(this));
-
     }
 
     @Override
