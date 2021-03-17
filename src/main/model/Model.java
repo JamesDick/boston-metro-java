@@ -68,6 +68,13 @@ public class Model implements IModel {
                 throw new BadFileException("station is on no lines");
             }
 
+            /* This is for specifying which 'St. Paul Street' station is which. */
+            if (Integer.parseInt(stationID) == 38) {
+                stationName += " B";
+            } else if (Integer.parseInt(stationID) == 61) {
+                stationName += " C";
+            }
+            
             Station tempStation = new Station(Integer.parseInt(stationID), stationName);
             graph.addNode(tempStation);
 
