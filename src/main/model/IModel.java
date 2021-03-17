@@ -4,6 +4,9 @@ import main.multigraph.Station;
 
 import java.util.List;
 
+/**
+ * Interface for interacting with a Model of the system.
+ */
 public interface IModel {
     /**
      * Finds a route between two specified Stations in the Metro.

@@ -1,5 +1,8 @@
 package main.multigraph;
 
+/**
+ * Represents an Edge between two Nodes in a Graph.
+ */
 public abstract class Edge {
     private int src;
     private int dest;

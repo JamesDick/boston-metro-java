@@ -8,6 +8,9 @@ import main.multigraph.Station;
 
 import java.util.List;
 
+/**
+ * Implementation of the View of the systme.
+ */
 public class View implements IView {
     private final GUI gui;
 

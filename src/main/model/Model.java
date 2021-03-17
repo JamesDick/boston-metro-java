@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+/**
+ * Implementation of the Model of the system.
+ */
 public class Model implements IModel {
     private final Multigraph graph;
 

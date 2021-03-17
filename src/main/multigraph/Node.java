@@ -1,5 +1,8 @@
 package main.multigraph;
 
+/**
+ * Represents a Node in a Graph.
+ */
 public abstract class Node {
     private int id;
     private String name;

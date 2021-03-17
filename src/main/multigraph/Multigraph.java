@@ -3,6 +3,10 @@ package main.multigraph;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Represents the Boston Metro system as a Multigraph,
+ * with Stations acting as Nodes and Rails acting as Edges.
+ */
 public class Multigraph extends Graph<Station, Rail> {
     public Multigraph() {
         super();

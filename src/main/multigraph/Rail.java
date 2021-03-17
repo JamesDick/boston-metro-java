@@ -1,5 +1,8 @@
 package main.multigraph;
 
+/**
+ * Represents a Rail in the Metro as an Edge in a Graph.
+ */
 public class Rail extends Edge {
     public String line;
 

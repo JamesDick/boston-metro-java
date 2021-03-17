@@ -4,6 +4,9 @@ import main.multigraph.*;
 
 import java.util.List;
 
+/**
+ * Interface for interacting with a View in the system.
+ */
 public interface IView {
     /**
      * Gets the Id of the Station at which the User has indicated they wish to start from.
