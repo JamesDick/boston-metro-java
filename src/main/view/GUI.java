@@ -85,7 +85,7 @@ public class GUI {
         routeList = new ListView<>();
         findRouteButton = new Button("Find Route");
         clearButton = new Button("Clear");
-        exitButton = new Button("exit");
+        exitButton = new Button("Exit");
 
         //Setting lists models
         for (Station s : stationList) {
