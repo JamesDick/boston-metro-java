@@ -47,12 +47,19 @@ public class GUI {
 
         stage.setScene(new Scene(generateMainPane()));
         stage.setResizable(false);
+        stage.getIcons().add(new Image("main/view/icon.png"));
         stage.show();
     }
 
     /**
      * Creates the main Pane of the GUI with an image on the left
      * and options on the right side.
+     *
+     *  Requires: An instantiated class extending Application
+     *
+     *  Effects: Creates the main Pane of the app, containing a map image and a side options Pane.
+     *
+     *  Modifies: n/a
      *
      * @return a BorderPane.
      */
@@ -72,6 +79,12 @@ public class GUI {
     /**
      * Right section of the GUI containing options and
      * a list of the generated route.
+     *
+     * Requires: an instantiated class extending Application
+     *
+     * Effects: creates an options Pane, containing interactive controls.
+     *
+     * Modifies: n/a
      *
      * @return an AnchorPane
      */
