@@ -22,7 +22,13 @@ public abstract class Graph<N extends Node, E extends Edge> {
 
     /**
      * Adds a Node to the Graph.
-     * Nodes may not contain an ID which is already present in the Graph.
+     *
+     * Requires: No Node already exists in the Graph with the same ID as the given Node.
+     *
+     * Effects: Checks if the current station has already been created
+     *          and if not it is added to the Graph and we return true, otherwise we return false.
+     *
+     * Modifies: A Node will potentially be added to the Graph.
      *
      * @param n The Node to be added.
      * @return true if the Node was added to the Graph, otherwise false.
@@ -38,7 +44,16 @@ public abstract class Graph<N extends Node, E extends Edge> {
 
     /**
      * Adds an Edge to the Graph.
-     * Edges must contain Nodes which already exist in the Graph.
+     *
+     * Requires: Nodes exist in the Graph matching the ID of the
+     *           source and destination Nodes of the given Edge.
+     *
+     * Effects: Checks whether the source and destination nodes of
+     *          the Edge already exist in the Graph,
+     *          if they do, the Edge is added and we return true,
+     *          otherwise we return false.
+     *
+     * Modifies: An Edge will potentially be added to the Graph.
      *
      * @param e The Edge to be added.
      * @return true if the Edge was added to the Graph, otherwise false.
