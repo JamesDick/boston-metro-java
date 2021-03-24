@@ -37,6 +37,13 @@ public class Model implements IModel {
     /**
      * Populates the Graph based on the contents of the 'metro.txt' file.
      *
+     * Requires: A well written text file to be parsed to populate an empty Multigraph.
+     *
+     * Effects:	Reads in the text file line-by-line and adds Stations and Rails appropriately while checking for
+     *          exceptions.
+     *
+     * Modifies: The multigraph, as the read in Stations and Rails are used to populate the empty Multigraph.
+     *
      * @throws IOException
      * @throws BadFileException
      */

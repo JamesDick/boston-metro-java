@@ -10,6 +10,13 @@ import main.view.IView;
  * and passes these through to the Model in order to find a
  * Route between these stations, then passes the route back
  * to the View for display.
+ *
+ * Requires: Source and Destination Stations have been selected on the IView and the Multigraph is populated correctly.
+ *
+ * Effects:	Passes a List of Stations forming the route back to the IView for display.
+ *
+ * Modifies: n/a
+ *
  */
 public class FindRouteBtnListener implements EventHandler<ActionEvent> {
     private IModel model;

@@ -5,6 +5,13 @@ import main.view.IView;
 
 /**
  * EventHandler implementation for the Clear Button that empties the View's Route List of items.
+ *
+ * Requires: n/a
+ *
+ * Effects: Signals the IView to clear the route list.
+ *
+ * Modifies: n/a
+ *
  */
 public class ClearBtnListener implements EventHandler<ActionEvent> {
     private IView view;
