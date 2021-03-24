@@ -32,7 +32,7 @@ public interface IModel {
      *
      * Effects:	A List of all the Stations in the Metro.
      *
-     * Modifies:	n/a
+     * Modifies: n/a
      *
      * @return A list of all the Stations in the Metro.
      */
