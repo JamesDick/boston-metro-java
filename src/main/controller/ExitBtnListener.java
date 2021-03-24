@@ -5,6 +5,13 @@ import main.view.IView;
 
 /**
  * EventHandler implementation for the Exit Button that exits the program.
+ *
+ * Requires: n/a
+ *
+ * Effects: Signals the IView to exit the program.
+ *
+ * Modifies: n/a
+ *
  */
 public class ExitBtnListener implements EventHandler<ActionEvent> {
     private IView view;

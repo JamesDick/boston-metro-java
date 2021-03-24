@@ -16,7 +16,7 @@ public interface IView {
     int selectedSrcId();
 
     /**
-     * Gets the Id of the Station at which the User has indicated they with to arrive at.
+     * Gets the Id of the Station at which the User has indicated they want to arrive at.
      *
      * @return The Id of the specified Station.
      */
