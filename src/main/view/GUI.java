@@ -64,7 +64,7 @@ public class GUI {
      *
      * @return a BorderPane.
      */
-    public BorderPane generateMainPane() {
+    private BorderPane generateMainPane() {
 
         Image image = new Image("main/view/map.png");
         ImageView mapView = new ImageView();
@@ -89,7 +89,7 @@ public class GUI {
      *
      * @return an AnchorPane
      */
-    public AnchorPane generateOptions() {
+    private AnchorPane generateOptions() {
         AnchorPane aPane = new AnchorPane();
         GridPane gPane = new GridPane();
 
