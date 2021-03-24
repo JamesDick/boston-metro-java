@@ -48,6 +48,7 @@ public class GUI {
         stage.setScene(new Scene(generateMainPane()));
         stage.setResizable(false);
         stage.getIcons().add(new Image("main/view/icon.png"));
+        stage.setTitle("  Boston Metro Navigation");
         stage.show();
     }
 
