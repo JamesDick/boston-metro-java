@@ -1,5 +1,5 @@
 # Boston Metro Navigation
-Simple JavaFX app for finding routes between two stations in the Boston Metro System, made for an assignment at the University of Strathclyde.
+JavaFX app for finding routes between two stations in the Boston Metro System, made for an assignment at the University of Strathclyde.
 
 ## Usage
 A finished version of the app can be downloaded from the [releases section](https://github.com/JamesDick/boston-metro-java/releases/tag/v1.0).
